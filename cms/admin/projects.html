@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects - JZJN CMS</title>
+  <link rel="stylesheet" href="css/admin.css">
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+</head>
+<body>
+  <nav class="admin-nav">
+    <a href="/admin/" class="nav-logo">JZJN CMS</a>
+    <div class="nav-links">
+      <a href="/admin/">Dashboard</a>
+      <a href="/admin/homepage.html">Homepage</a>
+      <a href="/admin/sidebar.html">About</a>
+      <a href="/admin/projects.html" class="active">Projects</a>
+    </div>
+    <a href="/" target="_blank" class="nav-preview">Preview Site</a>
+  </nav>
+
+  <main class="admin-main">
+    <div class="page-header">
+      <h1>Projects Index</h1>
+      <div class="header-actions">
+        <button id="addProjectBtn" class="btn btn-secondary">+ Add Project</button>
+        <button id="saveBtn" class="btn btn-primary">Save Order</button>
+      </div>
+    </div>
+
+    <p class="page-intro">Drag to reorder projects. Click "Edit" to modify project details or manage gallery images.</p>
+
+    <div class="projects-list" id="projectsList">
+      <!-- Projects loaded dynamically -->
+    </div>
+  </main>
+
+  <!-- Add Project Modal -->
+  <div class="modal" id="addModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Add New Project</h2>
+        <button class="modal-close" id="closeAddModal">&times;</button>
+      </div>
+      <form id="addForm">
+        <div class="form-group">
+          <label for="projectTitle">Project Title</label>
+          <input type="text" id="projectTitle" required>
+        </div>
+
+        <div class="form-group">
+          <label for="projectSubtitle">Subtitle (optional)</label>
+          <input type="text" id="projectSubtitle" placeholder="e.g., New Construction, Exhibition Design">
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" id="cancelAdd" class="btn btn-secondary">Cancel</button>
+          <button type="submit" class="btn btn-primary">Create Project</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Edit Index Entry Modal -->
+  <div class="modal" id="editModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Edit Project Index Entry</h2>
+        <button class="modal-close" id="closeEditModal">&times;</button>
+      </div>
+      <form id="editForm">
+        <input type="hidden" id="editSlug">
+
+        <div class="form-group">
+          <label for="editTitle">Project Title</label>
+          <input type="text" id="editTitle" required>
+        </div>
+
+        <div class="form-group">
+          <label for="editSubtitle">Subtitle (optional)</label>
+          <input type="text" id="editSubtitle">
+        </div>
+
+        <div class="form-group">
+          <label>Current Thumbnail</label>
+          <img id="currentThumbnail" class="preview-image" src="" alt="">
+        </div>
+
+        <div class="form-group">
+          <label for="newThumbnail">Replace Thumbnail</label>
+          <input type="file" id="newThumbnail" accept="image/*">
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" id="deleteProjectBtn" class="btn btn-danger">Delete Project</button>
+          <button type="submit" class="btn btn-primary">Update</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="js/admin.js"></script>
+  <script src="js/projects.js"></script>
+</body>
+</html>

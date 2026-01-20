@@ -1,0 +1,37 @@
+{
+  "slug": "hilltop-house",
+  "title": "Hilltop House",
+  "images": [
+    {
+      "src": "../images/hilltop-house/JZJN_HilltopHouse-ExteriorView_web.jpg",
+      "alt": "Hilltop House Exterior"
+    },
+    {
+      "src": "../images/hilltop-house/JZJN_HilltopHouse-Connector01_web.jpg",
+      "alt": "Hilltop House Connector"
+    },
+    {
+      "src": "../images/hilltop-house/JZJN_HilltopHouse-Kitchen01_web.jpg",
+      "alt": "Hilltop House Kitchen"
+    },
+    {
+      "src": "../images/hilltop-house/JZJN_HilltopHouse-Kitchen02_web.jpg",
+      "alt": "Hilltop House Kitchen"
+    },
+    {
+      "src": "../images/hilltop-house/JZJN_HilltopHouse-KidsWing01_web.jpg",
+      "alt": "Hilltop House Kids Wing"
+    },
+    {
+      "src": "../images/hilltop-house/JZJN_HilltopHouse-GuestBath01_web.jpg",
+      "alt": "Hilltop House Guest Bath"
+    },
+    {
+      "src": "../images/hilltop-house/JZJN_HilltopHouse-PrimaryBath01_web.jpg",
+      "alt": "Hilltop House Primary Bath"
+    }
+  ],
+  "info": [
+    "Phase 1 Currently Under Construction"
+  ]
+}

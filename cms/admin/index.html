@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JZJN CMS</title>
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+  <nav class="admin-nav">
+    <a href="/admin/" class="nav-logo">JZJN CMS</a>
+    <div class="nav-links">
+      <a href="/admin/" class="active">Dashboard</a>
+      <a href="/admin/homepage.html">Homepage</a>
+      <a href="/admin/sidebar.html">About</a>
+      <a href="/admin/projects.html">Projects</a>
+    </div>
+    <a href="/" target="_blank" class="nav-preview">Preview Site</a>
+  </nav>
+
+  <main class="admin-main">
+    <div class="dashboard">
+      <h1>Welcome to JZJN CMS</h1>
+      <p class="intro">Manage your architecture portfolio website content.</p>
+
+      <div class="dashboard-grid">
+        <a href="/admin/homepage.html" class="dashboard-card">
+          <h2>Homepage Slideshow</h2>
+          <p>Manage homepage slides, reorder images, and link to projects.</p>
+          <span class="card-count" id="slidesCount">-- slides</span>
+        </a>
+
+        <a href="/admin/sidebar.html" class="dashboard-card">
+          <h2>About / Sidebar</h2>
+          <p>Edit company info, paragraphs, contact details, and links.</p>
+        </a>
+
+        <a href="/admin/projects.html" class="dashboard-card">
+          <h2>Projects Index</h2>
+          <p>Manage project grid, reorder projects, edit titles and thumbnails.</p>
+          <span class="card-count" id="projectsCount">-- projects</span>
+        </a>
+
+        <div class="dashboard-card action-card">
+          <h2>Regenerate All</h2>
+          <p>Rebuild all HTML files from current data.</p>
+          <button id="regenerateBtn" class="btn btn-primary">Regenerate</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="js/admin.js"></script>
+  <script>
+    // Load counts
+    async function loadCounts() {
+      try {
+        const [homepageRes, projectsRes] = await Promise.all([
+          fetch('/api/homepage'),
+          fetch('/api/projects')
+        ]);
+        const homepage = await homepageRes.json();
+        const projects = await projectsRes.json();
+
+        document.getElementById('slidesCount').textContent = `${homepage.slides?.length || 0} slides`;
+        document.getElementById('projectsCount').textContent = `${projects.projects?.length || 0} projects`;
+      } catch (err) {
+        console.error('Failed to load counts:', err);
+      }
+    }
+
+    // Regenerate all
+    document.getElementById('regenerateBtn').addEventListener('click', async () => {
+      const btn = document.getElementById('regenerateBtn');
+      btn.disabled = true;
+      btn.textContent = 'Regenerating...';
+
+      try {
+        await fetch('/api/generate', { method: 'POST' });
+        showToast('All HTML files regenerated!', 'success');
+      } catch (err) {
+        showToast('Failed to regenerate: ' + err.message, 'error');
+      } finally {
+        btn.disabled = false;
+        btn.textContent = 'Regenerate';
+      }
+    });
+
+    loadCounts();
+  </script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="JZJN - Architecture, exhibition design, and fabrication projects.">
+  <title>Projects - JZJN</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a href="index.html" class="logo-fixed"><img src="images/logo.png" alt="JZJN"></a>
+
+  <main>
+    <div class="project-grid">
+
+      {{#each projects}}
+      <a href="projects/{{this.slug}}.html" class="project-card">
+        <img loading="lazy" src="{{this.thumbnail}}" alt="{{this.title}}">
+        <div class="project-info">
+          <h3>{{this.title}}</h3>
+          {{#if this.subtitle}}<p>{{this.subtitle}}</p>{{/if}}
+        </div>
+      </a>
+      {{/each}}
+
+    </div>
+  </main>
+
+  <script>
+    // Image fade-in on load
+    function initImageLoading(container) {
+      container.querySelectorAll('.project-card img').forEach(img => {
+        if (img.complete) {
+          img.classList.add('loaded');
+        } else {
+          img.addEventListener('load', () => img.classList.add('loaded'));
+        }
+      });
+    }
+
+    // Initialize existing images
+    initImageLoading(document);
+
+    // Infinite scroll
+    const projectGrid = document.querySelector('.project-grid');
+    const originalCards = Array.from(projectGrid.querySelectorAll('.project-card'));
+    let isLoading = false;
+
+    function loadMoreProjects() {
+      if (isLoading) return;
+      isLoading = true;
+
+      originalCards.forEach(card => {
+        const clone = card.cloneNode(true);
+        // Reset image loaded state for fade-in effect
+        const img = clone.querySelector('img');
+        img.classList.remove('loaded');
+        projectGrid.appendChild(clone);
+      });
+
+      // Initialize image loading for new cards
+      initImageLoading(projectGrid);
+      isLoading = false;
+    }
+
+    // Check scroll position
+    function checkScroll() {
+      const scrollY = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+
+      // Load more when user is within 500px of the bottom
+      if (scrollY + windowHeight >= documentHeight - 500) {
+        loadMoreProjects();
+      }
+    }
+
+    window.addEventListener('scroll', checkScroll);
+
+    // Mobile: show project info when card is in center of screen
+    if (window.innerWidth <= 600) {
+      function checkVisibleCards() {
+        const viewportCenter = window.innerHeight / 2;
+        document.querySelectorAll('.project-card').forEach(card => {
+          const rect = card.getBoundingClientRect();
+          const cardCenter = rect.top + rect.height / 2;
+          const info = card.querySelector('.project-info');
+          if (info && Math.abs(cardCenter - viewportCenter) < window.innerHeight * 0.25) {
+            info.classList.add('visible');
+          }
+        });
+      }
+
+      window.addEventListener('scroll', checkVisibleCards);
+      // Don't run on initial load - wait for first scroll
+    }
+  </script>
+</body>
+</html>

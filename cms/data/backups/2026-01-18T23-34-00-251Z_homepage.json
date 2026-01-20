@@ -1,0 +1,195 @@
+{
+  "slides": [
+    {
+      "id": 1,
+      "image": "images/slideshow/1-JZJN_UPcabin-slideshow_web.jpg",
+      "name": "UP Cabin",
+      "projectLink": "projects/up-cabin.html"
+    },
+    {
+      "id": 3,
+      "image": "images/slideshow/3-JZJN_HilltopHouse-ExteriorView_web.jpg",
+      "name": "Hilltop House",
+      "projectLink": "projects/hilltop-house.html"
+    },
+    {
+      "id": 2,
+      "image": "images/slideshow/2-JZJN_Starling_web02.jpg",
+      "name": "Tourist Cabins",
+      "projectLink": "projects/tourist-cabins.html"
+    },
+    {
+      "id": 6,
+      "image": "images/slideshow/6-JZJN_01-StarlingCollage_HiRes_web.jpg",
+      "name": "Tourist Cabins",
+      "projectLink": "projects/tourist-cabins.html"
+    },
+    {
+      "id": 4,
+      "image": "images/slideshow/4-JZJN_Starling_web01.jpg",
+      "name": "Tourist Cabins",
+      "projectLink": "projects/tourist-cabins.html"
+    },
+    {
+      "id": 5,
+      "image": "images/slideshow/5-JZJN_WallPower_web.jpg",
+      "name": "Wall Power",
+      "projectLink": "projects/wall-power.html"
+    },
+    {
+      "id": 9,
+      "image": "images/slideshow/8-JZJN_NAstudio_web4.jpg",
+      "name": "Artist's Studio NA",
+      "projectLink": null
+    },
+    {
+      "id": 8,
+      "image": "images/slideshow/7.2-JZJN_NAstudio.jpg",
+      "name": "Artist's Studio NA",
+      "projectLink": null
+    },
+    {
+      "id": 13,
+      "image": "images/slideshow/12-JZJN_NAstudio_web2.jpg",
+      "name": "Artist's Studio NA",
+      "projectLink": null
+    },
+    {
+      "id": 14,
+      "image": "images/slideshow/12.1-JZJN_NAstudio.jpg",
+      "name": "Artist's Studio NA",
+      "projectLink": null
+    },
+    {
+      "id": 15,
+      "image": "images/slideshow/13-JZJN_NAstudio_web.jpg",
+      "name": "Artist's Studio NA",
+      "projectLink": null
+    },
+    {
+      "id": 10,
+      "image": "images/slideshow/9-JZJN_Animals_web03.jpg",
+      "name": "Lin May Saeed: Arrival of the Animals",
+      "projectLink": "projects/lin-may-saeed.html"
+    },
+    {
+      "id": 11,
+      "image": "images/slideshow/10-JZJN_Animals_web02.jpg",
+      "name": "Lin May Saeed: Arrival of the Animals",
+      "projectLink": "projects/lin-may-saeed.html"
+    },
+    {
+      "id": 12,
+      "image": "images/slideshow/11-JZJN_Animals_web01.jpg",
+      "name": "Lin May Saeed: Arrival of the Animals",
+      "projectLink": "projects/lin-may-saeed.html"
+    },
+    {
+      "id": 16,
+      "image": "images/slideshow/14-JZJN_Unbeknow_web01.jpg",
+      "name": "Yoko Naito: Unbeknown",
+      "projectLink": null
+    },
+    {
+      "id": 17,
+      "image": "images/slideshow/15-JZJN_HCA_web.jpg",
+      "name": "HCA",
+      "projectLink": null
+    },
+    {
+      "id": 18,
+      "image": "images/slideshow/15.1-JZJN_HCA.jpg",
+      "name": "HCA",
+      "projectLink": null
+    },
+    {
+      "id": 19,
+      "image": "images/slideshow/16-JZJN_Heroic_web4.jpg",
+      "name": "Heroic",
+      "projectLink": null
+    },
+    {
+      "id": 20,
+      "image": "images/slideshow/17-JZJN_ReadingPavilion_web.jpg",
+      "name": "Boston Reading Pavilion",
+      "projectLink": null
+    },
+    {
+      "id": 21,
+      "image": "images/slideshow/18-JZJN_Housing_web3.jpg",
+      "name": "Housing",
+      "projectLink": null
+    },
+    {
+      "id": 22,
+      "image": "images/slideshow/19-JZJN_Housing_web2.jpg",
+      "name": "Housing",
+      "projectLink": null
+    },
+    {
+      "id": 23,
+      "image": "images/slideshow/20-JZJN_TwoConnectionsPart_web2.jpg",
+      "name": "Two Connections",
+      "projectLink": null
+    },
+    {
+      "id": 24,
+      "image": "images/slideshow/21-JZJN_Treehouse_web.jpg",
+      "name": "Treehouse",
+      "projectLink": null
+    },
+    {
+      "id": 25,
+      "image": "images/slideshow/22-JZJN_Sumvitg_web..jpg",
+      "name": "Atelier Sumvitg",
+      "projectLink": null
+    },
+    {
+      "id": 26,
+      "image": "images/slideshow/23-JZJN_Sumvitg_web.jpg",
+      "name": "Atelier Sumvitg",
+      "projectLink": null
+    },
+    {
+      "id": 27,
+      "image": "images/slideshow/24-JZJN_AColdHole.jpg",
+      "name": "A Cold Hole",
+      "projectLink": null
+    },
+    {
+      "id": 28,
+      "image": "images/slideshow/25-JZJN_AshStools.jpg",
+      "name": "Ash Stools",
+      "projectLink": null
+    },
+    {
+      "id": 29,
+      "image": "images/slideshow/26-JZJN_ConcreteWayfinding.jpg",
+      "name": "Concrete Wayfinding",
+      "projectLink": null
+    },
+    {
+      "id": 30,
+      "image": "images/slideshow/27-JZJN_JovianToronto.jpg",
+      "name": "Jovian",
+      "projectLink": null
+    }
+  ],
+  "sidebar": {
+    "companyName": "Jarzyniecki Johnson Architecture",
+    "links": [
+      {
+        "text": "Projects",
+        "url": "projects.html"
+      }
+    ],
+    "paragraphs": [
+      "JZJN is an architecture practice focused at the intersection of design, art and fabrication. Services include architectural design, project management, strategic planning, exhibition design, and custom fabrication.",
+      "Mandy Johnson and James Jarzyniecki are the founding partners. Both hold Master of Architecture degrees from Wentworth Institute of Technology in Boston. They have previously worked at notable NYC and Boston firms including Selldorf Architects and Kennedy Violich Architecture, among others.",
+      "The practice relocated from New York City to North Adams, Massachusetts in 2016. That same year, the partners founded [outside](https://thisisoutside.com), a non-profit gallery for art and design."
+    ],
+    "email": "info@jzjn.us",
+    "address": "1326 Mass Moca Way\nNorth Adams, MA 01247",
+    "mapUrl": "https://maps.google.com/maps?q=1326+Mass+MoCA+Way,+North+Adams,+MA+01247&output=embed"
+  }
+}

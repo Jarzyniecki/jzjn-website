@@ -1,0 +1,46 @@
+{
+  "slug": "up-cabin",
+  "title": "UP Cabin",
+  "images": [
+    {
+      "src": "../images/up-cabin/Up-Cabin_Exterior_005-web.jpg",
+      "alt": "UP Cabin Exterior"
+    },
+    {
+      "src": "../images/up-cabin/Up-Cabin_Exterior_020-web.jpg",
+      "alt": "UP Cabin Exterior"
+    },
+    {
+      "src": "../images/up-cabin/Up-Cabin_Exterior_028-web.jpg",
+      "alt": "UP Cabin Exterior"
+    },
+    {
+      "src": "../images/up-cabin/Up-Cabin_Entry_008-web.jpg",
+      "alt": "UP Cabin Entry"
+    },
+    {
+      "src": "../images/up-cabin/Up-Cabin_Living-Dining_019-web.jpg",
+      "alt": "UP Cabin Living Dining"
+    },
+    {
+      "src": "../images/up-cabin/Up-Cabin_Living-Dining_051-web.jpg",
+      "alt": "UP Cabin Living Dining"
+    },
+    {
+      "src": "../images/up-cabin/Up-Cabin_Kitchen_006-web.jpg",
+      "alt": "UP Cabin Kitchen"
+    },
+    {
+      "src": "../images/up-cabin/Up-Cabin_Bedroom_004-web.jpg",
+      "alt": "UP Cabin Bedroom"
+    },
+    {
+      "src": "../images/up-cabin/Up-Cabin_Deck_003-web.jpg",
+      "alt": "UP Cabin Deck"
+    }
+  ],
+  "info": [
+    "2022",
+    "Photography: Nicole Franzen"
+  ]
+}

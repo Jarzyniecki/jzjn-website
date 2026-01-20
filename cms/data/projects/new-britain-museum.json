@@ -1,0 +1,35 @@
+{
+  "slug": "new-britain-museum",
+  "title": "New Britain Museum of American Art",
+  "images": [
+    {
+      "src": "../images/new-britain-museum/JZJN_NBMAA_web01.jpg",
+      "alt": "New Britain Museum of American Art"
+    },
+    {
+      "src": "../images/new-britain-museum/JZJN_NBMAA_web02.jpg",
+      "alt": "New Britain Museum of American Art"
+    },
+    {
+      "src": "../images/new-britain-museum/JZJN_NBMAA_web03.jpg",
+      "alt": "New Britain Museum of American Art"
+    },
+    {
+      "src": "../images/new-britain-museum/JZJN_NBMAA_web04.jpg",
+      "alt": "New Britain Museum of American Art"
+    },
+    {
+      "src": "../images/new-britain-museum/JZJN_NBMAA_web.jpg",
+      "alt": "New Britain Museum of American Art"
+    }
+  ],
+  "info": [
+    "New Britain Museum of American Art",
+    "Historic Lander's House Renovation",
+    "New Britain, CT",
+    "Project Collaborators:",
+    "Interior Design: Basic Space",
+    "Architect of Record: Daniel Clowes",
+    "Completed and opened to the public July 1st, 2021"
+  ]
+}

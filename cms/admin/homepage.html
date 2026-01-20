@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Homepage - JZJN CMS</title>
+  <link rel="stylesheet" href="css/admin.css">
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+</head>
+<body>
+  <nav class="admin-nav">
+    <a href="/admin/" class="nav-logo">JZJN CMS</a>
+    <div class="nav-links">
+      <a href="/admin/">Dashboard</a>
+      <a href="/admin/homepage.html" class="active">Homepage</a>
+      <a href="/admin/sidebar.html">About</a>
+      <a href="/admin/projects.html">Projects</a>
+    </div>
+    <a href="/" target="_blank" class="nav-preview">Preview Site</a>
+  </nav>
+
+  <main class="admin-main">
+    <div class="page-header">
+      <h1>Homepage Slideshow</h1>
+      <div class="header-actions">
+        <button id="addSlideBtn" class="btn btn-secondary">+ Add Slide</button>
+        <button id="saveBtn" class="btn btn-primary">Save Changes</button>
+      </div>
+    </div>
+
+    <p class="page-intro">Drag to reorder slides. Click on a slide to edit its details.</p>
+
+    <div class="slides-grid" id="slidesGrid">
+      <!-- Slides loaded dynamically -->
+    </div>
+  </main>
+
+  <!-- Edit Modal -->
+  <div class="modal" id="editModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Edit Slide</h2>
+        <button class="modal-close" id="closeModal">&times;</button>
+      </div>
+      <form id="editForm">
+        <input type="hidden" id="slideIndex">
+
+        <div class="form-group">
+          <label for="slideName">Slide Name</label>
+          <input type="text" id="slideName" required>
+        </div>
+
+        <div class="form-group">
+          <label for="projectLink">Link to Project (optional)</label>
+          <select id="projectLink">
+            <option value="">No link</option>
+            <!-- Projects loaded dynamically -->
+          </select>
+        </div>
+
+        <div class="form-group checkbox-group">
+          <label>
+            <input type="checkbox" id="isLight">
+            Light Background (use dark logo)
+          </label>
+        </div>
+
+        <div class="form-group">
+          <label>Current Image</label>
+          <img id="currentImage" class="preview-image" src="" alt="">
+        </div>
+
+        <div class="form-group">
+          <label for="newImage">Replace Image</label>
+          <input type="file" id="newImage" accept="image/*">
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" id="deleteSlideBtn" class="btn btn-danger">Delete Slide</button>
+          <button type="submit" class="btn btn-primary">Update</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Add Modal -->
+  <div class="modal" id="addModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Add New Slide</h2>
+        <button class="modal-close" id="closeAddModal">&times;</button>
+      </div>
+      <form id="addForm">
+        <div class="form-group">
+          <label for="newSlideName">Slide Name</label>
+          <input type="text" id="newSlideName" required>
+        </div>
+
+        <div class="form-group">
+          <label for="newSlideProject">Link to Project (optional)</label>
+          <select id="newSlideProject">
+            <option value="">No link</option>
+          </select>
+        </div>
+
+        <div class="form-group checkbox-group">
+          <label>
+            <input type="checkbox" id="newSlideIsLight">
+            Light Background (use dark logo)
+          </label>
+        </div>
+
+        <div class="form-group">
+          <label for="newSlideImage">Image</label>
+          <input type="file" id="newSlideImage" accept="image/*" required>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" id="cancelAdd" class="btn btn-secondary">Cancel</button>
+          <button type="submit" class="btn btn-primary">Add Slide</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="js/admin.js"></script>
+  <script src="js/homepage.js"></script>
+</body>
+</html>

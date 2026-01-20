@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="JZJN - Architecture practice focused at the intersection of design, art and fabrication.">
+  <title>JZJN</title>
+  <style>
+    @font-face {
+      font-family: 'Akzidenz Grotesk';
+      src: url('fonts/AkzidenzGrotesk-Light.otf') format('opentype');
+      font-weight: 300;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: 'Akzidenz Grotesk';
+      src: url('fonts/AkzidenzGrotesk-Regular.otf') format('opentype');
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: 'Akzidenz Grotesk';
+      src: url('fonts/AkzidenzGrotesk-Medium.otf') format('opentype');
+      font-weight: 500;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: 'Akzidenz Grotesk';
+      src: url('fonts/AkzidenzGrotesk-Bold.otf') format('opentype');
+      font-weight: 700;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: 'Akkurat';
+      src: url('fonts/AkkBd_Pro_1.otf') format('opentype');
+      font-weight: 700;
+      font-style: normal;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      height: 100%;
+      overflow-y: scroll;
+    }
+
+    body {
+      height: 100%;
+      overflow: hidden;
+      font-family: 'Akzidenz Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #000;
+      color: #fff;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Header */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 20px 5%;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    .logo {
+      cursor: pointer;
+    }
+
+    .logo img {
+      height: 120px;
+      width: auto;
+      transition: filter 0.4s ease;
+    }
+
+    .logo.light-bg img {
+      filter: brightness(0);
+    }
+
+    .logo:hover img {
+      filter: brightness(0);
+    }
+
+    .logo.light-bg:hover img {
+      filter: none;
+    }
+
+
+    /* Sidebar */
+    .sidebar-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: transparent;
+      z-index: 200;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .sidebar-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 0;
+      right: -450px;
+      width: 450px;
+      max-width: 90%;
+      height: 100%;
+      background: #fff;
+      color: #000;
+      z-index: 300;
+      transition: right 0.4s ease;
+      overflow-y: auto;
+      padding: 40px;
+      font-family: 'Akzidenz Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    .sidebar.active {
+      right: 0;
+    }
+
+    .sidebar-close {
+      position: absolute;
+      top: 44px;
+      right: 40px;
+      cursor: pointer;
+      font-size: 1rem;
+      line-height: 1;
+      color: #777;
+      transition: color 0.2s ease;
+    }
+
+    .sidebar-close:hover {
+      color: #000;
+    }
+
+    .sidebar-header {
+      margin-bottom: 2rem;
+    }
+
+    .sidebar-header {
+      margin-bottom: 2.5rem;
+    }
+
+    .sidebar-header h1 {
+      font-size: 1rem;
+      font-weight: 400;
+      color: #262626;
+      margin-bottom: 2rem;
+    }
+
+    .sidebar-header .projects-link {
+      display: inline-block;
+      font-size: 1rem;
+      color: #262626;
+      text-decoration: underline;
+      transition: background 0.2s ease, color 0.2s ease;
+      margin-right: 1rem;
+    }
+
+    .sidebar-header .projects-link:last-of-type {
+      margin-right: 0;
+    }
+
+    .sidebar-header .projects-link:hover {
+      background: #000;
+      color: #fff;
+    }
+
+    @keyframes linkPulse {
+      0% { background: transparent; }
+      40% { background: #ccddf1; }
+      100% { background: transparent; }
+    }
+
+    .sidebar.active .sidebar-header .projects-link {
+      animation: linkPulse 1s ease-out 0.3s;
+    }
+
+    .sidebar-content h2 {
+      font-size: 1rem;
+      font-weight: 400;
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+      color: #000;
+    }
+
+    .sidebar-content h2:first-child {
+      margin-top: 0;
+    }
+
+    .sidebar-content p {
+      font-size: 1rem;
+      line-height: 1.4;
+      color: #262626;
+      margin-bottom: 1.5rem;
+    }
+
+    .sidebar-content p.contact-email {
+      margin-top: 5rem;
+      margin-bottom: 5rem;
+    }
+
+    .sidebar-content p.contact-address {
+      margin-bottom: 1.5rem;
+    }
+
+    .sidebar-content ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .sidebar-content li {
+      font-size: 0.9rem;
+      line-height: 1.4;
+      color: #333;
+      margin-bottom: 0.25rem;
+    }
+
+    .sidebar-content a {
+      color: #262626;
+      text-decoration: underline;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .sidebar-content a:hover {
+      background: #000;
+      color: #fff;
+    }
+
+    .map-container {
+      margin-top: 0.5rem;
+    }
+
+    .map-container iframe {
+      display: block;
+      filter: grayscale(100%);
+    }
+
+    .sidebar-content .copyright {
+      margin-top: 5rem;
+      font-size: 1rem;
+      color: #262626;
+    }
+
+    /* Slideshow */
+    .slideshow {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+    }
+
+    .slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 0.6s ease;
+    }
+
+    .slide.active {
+      opacity: 1;
+    }
+
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Slide info overlay */
+    .slide-info {
+      display: none;
+    }
+
+    /* Project name */
+    .counter {
+      position: fixed;
+      bottom: 30px;
+      right: 5%;
+      font-size: 0.875rem;
+      z-index: 100;
+    }
+
+    .counter .project-name {
+      position: relative;
+      z-index: 101;
+      color: #333;
+      text-decoration: none;
+      transition: background 0.2s ease, color 0.2s ease;
+      background: #ccddf1;
+      padding: 0.25rem 0.5rem;
+      cursor: pointer;
+    }
+
+    .counter .project-name:hover {
+      background: #000;
+      color: #fff;
+    }
+
+    .counter.light-bg .project-name {
+      background: #000;
+      color: #fff;
+    }
+
+    .counter.light-bg .project-name:hover {
+      background: #ccddf1;
+      color: #333;
+    }
+
+
+    /* Click zones */
+    .click-zone {
+      position: absolute;
+      top: 0;
+      height: calc(100% - 60px);
+      width: 50%;
+      z-index: 50;
+    }
+
+    .click-zone.prev {
+      left: 0;
+      cursor: url("images/JZJN_cursor_left.png") 10 30, w-resize;
+    }
+
+    .click-zone.next {
+      right: 0;
+      cursor: url("images/JZJN_cursor_right.png") 50 30, e-resize;
+    }
+
+
+    /* Navigation arrows - hidden, using cursor instead */
+    .nav-arrow {
+      display: none;
+    }
+
+
+    /* Mobile */
+    @media (max-width: 600px) {
+      header {
+        padding: 15px 5%;
+      }
+
+      .logo img {
+        height: 90px;
+      }
+
+      .sidebar {
+        width: 100%;
+        max-width: 100%;
+        right: -100%;
+        padding: 30px;
+      }
+
+      .sidebar-close {
+        top: 34px;
+        right: 30px;
+      }
+
+      .counter {
+        bottom: 30px;
+      }
+
+      .nav-arrow {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo" id="logoToggle"><img src="images/logo.png" alt="JZJN"></div>
+  </header>
+
+  <!-- Sidebar -->
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-close" id="sidebarClose">&#8594;</div>
+
+    <div class="sidebar-header">
+      <h1>Jarzyniecki Johnson Architecture</h1>
+      <a href="projects.html" class="projects-link">Projects</a>
+    </div>
+
+    <div class="sidebar-content">
+      <p>JZJN is an architecture practice focused at the intersection of design, art and fabrication. Services include architectural design, project management, strategic planning, exhibition design, and custom fabrication.</p>
+      <p>Mandy Johnson and James Jarzyniecki are the founding partners. Both hold Master of Architecture degrees from Wentworth Institute of Technology in Boston. They have previously worked at notable NYC and Boston firms including Selldorf Architects and Kennedy Violich Architecture, among others.</p>
+      <p>The practice relocated from New York City to North Adams, Massachusetts in 2016. That same year, the partners founded <a href="https://thisisoutside.com" target="_blank">outside</a>, a non-profit gallery for art and design.</p>
+
+      <p class="contact-email"><a href="mailto:info@jzjn.us">info@jzjn.us</a></p>
+
+      <p class="contact-address">1326 Mass Moca Way<br>North Adams, MA 01247</p>
+
+      <div class="map-container">
+        <iframe
+          src="https://maps.google.com/maps?q&#x3D;1326+Mass+MoCA+Way,+North+Adams,+MA+01247&amp;output&#x3D;embed"
+          width="100%"
+          height="200"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy">
+        </iframe>
+      </div>
+
+      <p class="copyright">&copy; 2026 JZJN</p>
+    </div>
+  </aside>
+
+  <div class="slideshow" id="slideshow">
+    <div class="slide active" data-project="projects/up-cabin.html">
+      <img src="images/slideshow/1-JZJN_UPcabin-slideshow_web.jpg" alt="UP Cabin">
+    </div>
+    <div class="slide" data-project="projects/hilltop-house.html" data-light="true">
+      <img src="images/slideshow/3-JZJN_HilltopHouse-ExteriorView_web.jpg" alt="Hilltop House">
+    </div>
+    <div class="slide" data-project="projects/tourist-cabins.html">
+      <img src="images/slideshow/2-JZJN_Starling_web02.jpg" alt="Tourist Cabins">
+    </div>
+    <div class="slide" data-project="projects/tourist-cabins.html">
+      <img src="images/slideshow/4-JZJN_Starling_web01.jpg" alt="Tourist Cabins">
+    </div>
+    <div class="slide" data-project="projects/tourist-cabins.html" data-light="true">
+      <img src="images/slideshow/6-JZJN_01-StarlingCollage_HiRes_web.jpg" alt="Tourist Cabins">
+    </div>
+    <div class="slide" data-project="projects/wall-power.html" data-light="true">
+      <img src="images/slideshow/5-JZJN_WallPower_web.jpg" alt="Wall Power">
+    </div>
+    <div class="slide">
+      <img src="images/slideshow/8-JZJN_NAstudio_web4.jpg" alt="Artist&#x27;s Studio NA">
+    </div>
+    <div class="slide" data-light="true">
+      <img src="images/slideshow/7.2-JZJN_NAstudio.jpg" alt="Artist&#x27;s Studio NA">
+    </div>
+    <div class="slide">
+      <img src="images/slideshow/12-JZJN_NAstudio_web2.jpg" alt="Artist&#x27;s Studio NA">
+    </div>
+    <div class="slide">
+      <img src="images/slideshow/12.1-JZJN_NAstudio.jpg" alt="Artist&#x27;s Studio NA">
+    </div>
+    <div class="slide">
+      <img src="images/slideshow/13-JZJN_NAstudio_web.jpg" alt="Artist&#x27;s Studio NA">
+    </div>
+    <div class="slide" data-project="projects/lin-may-saeed.html">
+      <img src="images/slideshow/9-JZJN_Animals_web03.jpg" alt="Lin May Saeed: Arrival of the Animals">
+    </div>
+    <div class="slide" data-project="projects/lin-may-saeed.html">
+      <img src="images/slideshow/10-JZJN_Animals_web02.jpg" alt="Lin May Saeed: Arrival of the Animals">
+    </div>
+    <div class="slide" data-project="projects/lin-may-saeed.html" data-light="true">
+      <img src="images/slideshow/11-JZJN_Animals_web01.jpg" alt="Lin May Saeed: Arrival of the Animals">
+    </div>
+    <div class="slide">
+      <img src="images/slideshow/14-JZJN_Unbeknow_web01.jpg" alt="Yoko Naito: Unbeknown">
+    </div>
+    <div class="slide">
+      <img src="images/slideshow/15-JZJN_HCA_web.jpg" alt="HCA">
+    </div>
+    <div class="slide">
+      <img src="images/slideshow/15.1-JZJN_HCA.jpg" alt="HCA">
+    </div>
+    <div class="slide" data-light="true">
+      <img src="images/slideshow/16-JZJN_Heroic_web4.jpg" alt="Heroic">
+    </div>
+    <div class="slide">
+      <img src="images/slideshow/17-JZJN_ReadingPavilion_web.jpg" alt="Boston Reading Pavilion">
+    </div>
+    <div class="slide">
+      <img src="images/slideshow/18-JZJN_Housing_web3.jpg" alt="Housing">
+    </div>
+    <div class="slide" data-light="true">
+      <img src="images/slideshow/19-JZJN_Housing_web2.jpg" alt="Housing">
+    </div>
+    <div class="slide" data-light="true">
+      <img src="images/slideshow/20-JZJN_TwoConnectionsPart_web2.jpg" alt="Two Connections">
+    </div>
+    <div class="slide" data-light="true">
+      <img src="images/slideshow/21-JZJN_Treehouse_web.jpg" alt="Treehouse">
+    </div>
+    <div class="slide">
+      <img src="images/slideshow/22-JZJN_Sumvitg_web..jpg" alt="Atelier Sumvitg">
+    </div>
+    <div class="slide" data-light="true">
+      <img src="images/slideshow/23-JZJN_Sumvitg_web.jpg" alt="Atelier Sumvitg">
+    </div>
+    <div class="slide" data-light="true">
+      <img src="images/slideshow/24-JZJN_AColdHole.jpg" alt="A Cold Hole">
+    </div>
+    <div class="slide" data-light="true">
+      <img src="images/slideshow/25-JZJN_AshStools.jpg" alt="Ash Stools">
+    </div>
+    <div class="slide">
+      <img src="images/slideshow/26-JZJN_ConcreteWayfinding.jpg" alt="Concrete Wayfinding">
+    </div>
+    <div class="slide" data-light="true">
+      <img src="images/slideshow/27-JZJN_JovianToronto.jpg" alt="Jovian">
+    </div>
+
+    <div class="click-zone prev"></div>
+    <div class="click-zone next"></div>
+  </div>
+
+  <div class="nav-arrow prev">&#8592;</div>
+  <div class="nav-arrow next">&#8594;</div>
+
+  <div class="counter">
+    <a href="projects/up-cabin.html" class="project-name" id="projectName">UP Cabin</a>
+  </div>
+
+  <script>
+    // Sidebar functionality
+    const logoToggle = document.getElementById('logoToggle');
+    const sidebar = document.getElementById('sidebar');
+    const sidebarOverlay = document.getElementById('sidebarOverlay');
+    const sidebarClose = document.getElementById('sidebarClose');
+
+    function openSidebar() {
+      sidebar.classList.add('active');
+      sidebarOverlay.classList.add('active');
+    }
+
+    function closeSidebar() {
+      sidebar.classList.remove('active');
+      sidebarOverlay.classList.remove('active');
+    }
+
+    logoToggle.addEventListener('click', openSidebar);
+    sidebarOverlay.addEventListener('click', closeSidebar);
+    sidebarClose.addEventListener('click', closeSidebar);
+
+    // Close sidebar on escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeSidebar();
+      }
+    });
+
+    // Slideshow functionality
+    const slideshow = document.getElementById('slideshow');
+    const slides = document.querySelectorAll('.slide');
+    const projectNameEl = document.getElementById('projectName');
+    const prevZone = document.querySelector('.click-zone.prev');
+    const nextZone = document.querySelector('.click-zone.next');
+
+    // Project names array
+    const projectNames = ["UP Cabin","Hilltop House","Tourist Cabins","Tourist Cabins","Tourist Cabins","Wall Power","Artist's Studio NA","Artist's Studio NA","Artist's Studio NA","Artist's Studio NA","Artist's Studio NA","Lin May Saeed: Arrival of the Animals","Lin May Saeed: Arrival of the Animals","Lin May Saeed: Arrival of the Animals","Yoko Naito: Unbeknown","HCA","HCA","Heroic","Boston Reading Pavilion","Housing","Housing","Two Connections","Treehouse","Atelier Sumvitg","Atelier Sumvitg","A Cold Hole","Ash Stools","Concrete Wayfinding","Jovian"];
+
+    let currentIndex = 0;
+    const total = slides.length;
+
+    function showSlide(index) {
+      slides[currentIndex].classList.remove('active');
+      currentIndex = (index + total) % total;
+      slides[currentIndex].classList.add('active');
+      projectNameEl.textContent = projectNames[currentIndex];
+
+      // Update project link
+      const projectUrl = slides[currentIndex].dataset.project;
+      if (projectUrl) {
+        projectNameEl.href = projectUrl;
+        projectNameEl.style.pointerEvents = 'auto';
+      } else {
+        projectNameEl.removeAttribute('href');
+        projectNameEl.style.pointerEvents = 'none';
+      }
+
+      // Update logo, counter, slideshow, and cursors for light/dark background
+      const counter = document.querySelector('.counter');
+      const isLight = slides[currentIndex].dataset.light;
+      if (isLight) {
+        logoToggle.classList.add('light-bg');
+        counter.classList.add('light-bg');
+        slideshow.classList.add('light-bg');
+      } else {
+        logoToggle.classList.remove('light-bg');
+        counter.classList.remove('light-bg');
+        slideshow.classList.remove('light-bg');
+      }
+      updateCursors(isLight);
+    }
+
+    // Create inverted cursors for light backgrounds
+    let darkCursorLeft = null;
+    let darkCursorRight = null;
+
+    function createInvertedCursor(src, callback) {
+      const img = new Image();
+      img.crossOrigin = 'anonymous';
+      img.onload = function() {
+        const canvas = document.createElement('canvas');
+        canvas.width = img.width;
+        canvas.height = img.height;
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(img, 0, 0);
+
+        const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        const data = imageData.data;
+
+        // Invert colors (make light blue into dark)
+        for (let i = 0; i < data.length; i += 4) {
+          if (data[i + 3] > 0) { // Only affect non-transparent pixels
+            data[i] = 0;     // R
+            data[i + 1] = 0; // G
+            data[i + 2] = 0; // B
+          }
+        }
+
+        ctx.putImageData(imageData, 0, 0);
+        callback(canvas.toDataURL());
+      };
+      img.src = src;
+    }
+
+    // Pre-generate dark cursors
+    createInvertedCursor('images/JZJN_cursor_left.png', (dataUrl) => {
+      darkCursorLeft = dataUrl;
+    });
+    createInvertedCursor('images/JZJN_cursor_right.png', (dataUrl) => {
+      darkCursorRight = dataUrl;
+    });
+
+    function updateCursors(isLight) {
+      if (isLight && darkCursorLeft && darkCursorRight) {
+        prevZone.style.cursor = `url("${darkCursorLeft}") 10 30, w-resize`;
+        nextZone.style.cursor = `url("${darkCursorRight}") 50 30, e-resize`;
+      } else {
+        prevZone.style.cursor = 'url("images/JZJN_cursor_left.png") 10 30, w-resize';
+        nextZone.style.cursor = 'url("images/JZJN_cursor_right.png") 50 30, e-resize';
+      }
+    }
+
+    // Set initial logo/counter/slideshow state
+    const counter = document.querySelector('.counter');
+    if (slides[0].dataset.light) {
+      logoToggle.classList.add('light-bg');
+      counter.classList.add('light-bg');
+      slideshow.classList.add('light-bg');
+      setTimeout(() => updateCursors(true), 100);
+    }
+
+    function nextSlide() {
+      showSlide(currentIndex + 1);
+    }
+
+    function prevSlide() {
+      showSlide(currentIndex - 1);
+    }
+
+    // Click zones
+    nextZone.addEventListener('click', nextSlide);
+    prevZone.addEventListener('click', prevSlide);
+
+    // Arrow visibility on hover
+    const prevArrow = document.querySelector('.nav-arrow.prev');
+    const nextArrow = document.querySelector('.nav-arrow.next');
+
+    prevZone.addEventListener('mouseenter', () => prevArrow.style.opacity = '1');
+    prevZone.addEventListener('mouseleave', () => prevArrow.style.opacity = '0');
+    nextZone.addEventListener('mouseenter', () => nextArrow.style.opacity = '1');
+    nextZone.addEventListener('mouseleave', () => nextArrow.style.opacity = '0');
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (sidebar.classList.contains('active')) return; // Don't navigate when sidebar is open
+
+      if (e.key === 'ArrowRight' || e.key === ' ') {
+        nextSlide();
+      } else if (e.key === 'ArrowLeft') {
+        prevSlide();
+      }
+    });
+
+    // Touch/swipe support
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    slideshow.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    slideshow.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe();
+    }, { passive: true });
+
+    function handleSwipe() {
+      const diff = touchStartX - touchEndX;
+      if (Math.abs(diff) > 50) {
+        if (diff > 0) {
+          nextSlide();
+        } else {
+          prevSlide();
+        }
+      }
+    }
+
+    // Click on slide info to go to project
+    document.querySelectorAll('.slide-info').forEach(info => {
+      info.style.cursor = 'pointer';
+      info.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const projectUrl = info.parentElement.dataset.project;
+        if (projectUrl) {
+          window.location.href = projectUrl;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

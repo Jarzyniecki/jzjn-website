@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="UP Cabin - JZJN Architecture">
+  <title>UP Cabin - JZJN</title>
+  <style>
+    @font-face {
+      font-family: 'Akzidenz Grotesk';
+      src: url('../fonts/AkzidenzGrotesk-Light.otf') format('opentype');
+      font-weight: 300;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: 'Akzidenz Grotesk';
+      src: url('../fonts/AkzidenzGrotesk-Regular.otf') format('opentype');
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: 'Akzidenz Grotesk';
+      src: url('../fonts/AkzidenzGrotesk-Medium.otf') format('opentype');
+      font-weight: 500;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: 'Akzidenz Grotesk';
+      src: url('../fonts/AkzidenzGrotesk-Bold.otf') format('opentype');
+      font-weight: 700;
+      font-style: normal;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      height: 100%;
+    }
+
+    body {
+      height: 100%;
+      overflow: hidden;
+      font-family: 'Akzidenz Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #fff;
+      color: #000;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Header */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 20px 5%;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    .logo a {
+      display: block;
+    }
+
+    .logo img {
+      height: 120px;
+      width: auto;
+      filter: invert(1);
+      transition: filter 0.4s ease;
+    }
+
+    .logo:hover img {
+      filter: invert(0);
+    }
+
+    /* Slideshow */
+    .slideshow {
+      position: fixed;
+      top: 0;
+      left: 8%;
+      right: 8%;
+      bottom: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 0.6s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 140px 0 80px 0;
+    }
+
+    .slide.active {
+      opacity: 1;
+    }
+
+    .slide img {
+      max-width: 70%;
+      max-height: 70%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+    }
+
+    /* Text slide */
+    .slide-text {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #000;
+      max-width: 700px;
+      padding: 0 20px;
+    }
+
+    .slide-text .spacer {
+      height: 1.5rem;
+    }
+
+    /* Project info - centered below images */
+    .project-info {
+      position: fixed;
+      bottom: 100px;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .project-info > span {
+      font-size: 0.875rem;
+      font-weight: 400;
+      color: #000;
+      display: block;
+    }
+
+    .project-info .counter span {
+      display: inline;
+    }
+
+    /* Click zones */
+    .click-zone {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      width: 50%;
+      z-index: 50;
+    }
+
+    .click-zone.prev {
+      left: 0;
+      cursor: url("../images/JZJN_black.cursor_left.png") 3 10, w-resize;
+    }
+
+    .click-zone.next {
+      right: 0;
+      cursor: url("../images/JZJN_black.cursor_right.png") 17 10, e-resize;
+    }
+
+    /* Navigation arrows - hidden, using cursor instead */
+    .nav-arrow {
+      display: none;
+    }
+
+    /* Mobile */
+    @media (max-width: 600px) {
+      header {
+        padding: 15px 5%;
+      }
+
+      .logo img {
+        height: 90px;
+      }
+
+      .slideshow {
+        left: 5%;
+        right: 5%;
+      }
+
+      .slide {
+        padding: 120px 0 70px 0;
+      }
+
+      .slide img {
+        max-width: 95%;
+        max-height: 85%;
+      }
+
+      .project-info {
+        bottom: 20px;
+      }
+
+      .nav-arrow {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo"><a href="../projects.html"><img src="../images/logo.png" alt="JZJN"></a></div>
+  </header>
+
+  <div class="slideshow" id="slideshow">
+    <div class="slide active">
+      <img src="../images/up-cabin/Up-Cabin_Exterior_005-web.jpg" alt="UP Cabin Exterior">
+    </div>
+    <div class="slide">
+      <img src="../images/up-cabin/Up-Cabin_Exterior_020-web.jpg" alt="UP Cabin Exterior">
+    </div>
+    <div class="slide">
+      <img src="../images/up-cabin/Up-Cabin_Exterior_028-web.jpg" alt="UP Cabin Exterior">
+    </div>
+    <div class="slide">
+      <img src="../images/up-cabin/Up-Cabin_Entry_008-web.jpg" alt="UP Cabin Entry">
+    </div>
+    <div class="slide">
+      <img src="../images/up-cabin/Up-Cabin_Living-Dining_019-web.jpg" alt="UP Cabin Living Dining">
+    </div>
+    <div class="slide">
+      <img src="../images/up-cabin/Up-Cabin_Living-Dining_051-web.jpg" alt="UP Cabin Living Dining">
+    </div>
+    <div class="slide">
+      <img src="../images/up-cabin/Up-Cabin_Kitchen_006-web.jpg" alt="UP Cabin Kitchen">
+    </div>
+    <div class="slide">
+      <img src="../images/up-cabin/Up-Cabin_Bedroom_004-web.jpg" alt="UP Cabin Bedroom">
+    </div>
+    <div class="slide">
+      <img src="../images/up-cabin/Up-Cabin_Deck_003-web.jpg" alt="UP Cabin Deck">
+    </div>
+    <div class="slide">
+      <div class="slide-text">
+        <span>2022</span>
+        <div class="spacer"></div>
+        <span>Photography: Nicole Franzen</span>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="click-zone prev"></div>
+  <div class="click-zone next"></div>
+
+  <div class="nav-arrow prev">&#8592;</div>
+  <div class="nav-arrow next">&#8594;</div>
+
+  <div class="project-info">
+    <span class="project-name">UP Cabin</span>
+    <span class="counter"><span id="current">1</span>/<span id="total">10</span></span>
+  </div>
+
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    const currentEl = document.getElementById('current');
+    const totalEl = document.getElementById('total');
+    const prevZone = document.querySelector('.click-zone.prev');
+    const nextZone = document.querySelector('.click-zone.next');
+    const prevArrow = document.querySelector('.nav-arrow.prev');
+    const nextArrow = document.querySelector('.nav-arrow.next');
+
+    let currentIndex = 0;
+    const total = slides.length;
+
+    totalEl.textContent = total;
+
+    function showSlide(index) {
+      slides[currentIndex].classList.remove('active');
+      currentIndex = (index + total) % total;
+      slides[currentIndex].classList.add('active');
+      currentEl.textContent = currentIndex + 1;
+    }
+
+    function nextSlide() {
+      showSlide(currentIndex + 1);
+    }
+
+    function prevSlide() {
+      showSlide(currentIndex - 1);
+    }
+
+    // Click zones
+    nextZone.addEventListener('click', nextSlide);
+    prevZone.addEventListener('click', prevSlide);
+
+    // Arrow visibility on hover
+    prevZone.addEventListener('mouseenter', () => prevArrow.style.opacity = '1');
+    prevZone.addEventListener('mouseleave', () => prevArrow.style.opacity = '0');
+    nextZone.addEventListener('mouseenter', () => nextArrow.style.opacity = '1');
+    nextZone.addEventListener('mouseleave', () => nextArrow.style.opacity = '0');
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ') {
+        nextSlide();
+      } else if (e.key === 'ArrowLeft') {
+        prevSlide();
+      } else if (e.key === 'Escape') {
+        window.location.href = '../index.html';
+      }
+    });
+
+    // Touch/swipe support - listen on document to work over click zones
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    document.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    document.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe();
+    }, { passive: true });
+
+    function handleSwipe() {
+      const diff = touchStartX - touchEndX;
+      if (Math.abs(diff) > 50) {
+        if (diff > 0) {
+          nextSlide();
+        } else {
+          prevSlide();
+        }
+      }
+    }
+  </script>
+</body>
+</html>

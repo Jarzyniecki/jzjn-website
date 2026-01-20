@@ -1,0 +1,166 @@
+{
+  "projects": [
+    {
+      "slug": "tourist-cabins",
+      "thumbnail": "images/tourist-cabins.jpg",
+      "title": "Tourist Cabins",
+      "subtitle": "New Construction"
+    },
+    {
+      "slug": "hilltop-house",
+      "thumbnail": "images/hilltop-house.jpg",
+      "title": "Hilltop House",
+      "subtitle": "Williamstown, MA"
+    },
+    {
+      "slug": "up-cabin",
+      "thumbnail": "images/up-cabin.jpg",
+      "title": "UP Cabin",
+      "subtitle": "New Construction"
+    },
+    {
+      "slug": "lin-may-saeed",
+      "thumbnail": "images/lin-may-saeed.jpg",
+      "title": "Lin May Saeed: Arrival of the Animals",
+      "subtitle": "Exhibition Design"
+    },
+    {
+      "slug": "new-britain-museum",
+      "thumbnail": "images/new-britain-museum.jpg",
+      "title": "New Britain Museum of American Art",
+      "subtitle": "Historic Renovation"
+    },
+    {
+      "slug": "artists-studio-na",
+      "thumbnail": "images/artists-studio-na.jpg",
+      "title": "Artist's Studio NA",
+      "subtitle": "New Construction"
+    },
+    {
+      "slug": "hardwares-house",
+      "thumbnail": "images/hardwares-house.jpg",
+      "title": "Hardwares House",
+      "subtitle": "New Construction"
+    },
+    {
+      "slug": "wall-power",
+      "thumbnail": "images/wall-power.jpg",
+      "title": "Wall Power",
+      "subtitle": "Exhibition Design"
+    },
+    {
+      "slug": "concrete-wayfinding",
+      "thumbnail": "images/concrete-wayfinding.jpg",
+      "title": "Concrete Wayfinding",
+      "subtitle": null
+    },
+    {
+      "slug": "west-village-apartment",
+      "thumbnail": "images/west-village-apartment.jpg",
+      "title": "West Village Apartment",
+      "subtitle": null
+    },
+    {
+      "slug": "williamsburg-apartment",
+      "thumbnail": "images/williamsburg-apartment.jpg",
+      "title": "Williamsburg Apartment Renovation",
+      "subtitle": null
+    },
+    {
+      "slug": "atelier-sumvitg",
+      "thumbnail": "images/atelier-sumvitg.jpg",
+      "title": "Atelier Sumvitg",
+      "subtitle": "Architecture"
+    },
+    {
+      "slug": "boston-reading-pavilion",
+      "thumbnail": "images/boston-reading-pavilion.jpg",
+      "title": "Boston Reading Pavilion",
+      "subtitle": "Design-Build"
+    },
+    {
+      "slug": "lincoln-square-apartment",
+      "thumbnail": "images/lincoln-square-apartment.jpg",
+      "title": "Lincoln Square Apartment",
+      "subtitle": null
+    },
+    {
+      "slug": "walead-beshty",
+      "thumbnail": "images/walead-beshty.jpg",
+      "title": "Walead Beshty: On the Matter of Abstraction",
+      "subtitle": "Exhibition Design"
+    },
+    {
+      "slug": "yoko-naito",
+      "thumbnail": "images/yoko-naito.jpg",
+      "title": "Yoko Naito: Unbeknown",
+      "subtitle": "Exhibition Design & Curation"
+    },
+    {
+      "slug": "dc-masterplan",
+      "thumbnail": "images/dc-masterplan.jpg",
+      "title": "DC Masterplan",
+      "subtitle": null
+    },
+    {
+      "slug": "garden-shed",
+      "thumbnail": "images/garden-shed.jpg",
+      "title": "Garden Shed",
+      "subtitle": null
+    },
+    {
+      "slug": "ash-stools",
+      "thumbnail": "images/ash-stools.jpg",
+      "title": "Ash Stools",
+      "subtitle": "Furniture"
+    },
+    {
+      "slug": "grass-wood",
+      "thumbnail": "images/grass-wood.jpg",
+      "title": "Grass, Wood",
+      "subtitle": null
+    },
+    {
+      "slug": "heroic",
+      "thumbnail": "images/heroic.jpg",
+      "title": "Heroic",
+      "subtitle": null
+    },
+    {
+      "slug": "stone-extracts",
+      "thumbnail": "images/stone-extracts.jpg",
+      "title": "Stone Extracts",
+      "subtitle": null
+    },
+    {
+      "slug": "this-is-outside",
+      "thumbnail": "images/this-is-outside.jpg",
+      "title": "This is Outside",
+      "subtitle": null
+    },
+    {
+      "slug": "horizon",
+      "thumbnail": "images/horizon.jpg",
+      "title": "Horizon",
+      "subtitle": null
+    },
+    {
+      "slug": "jovian",
+      "thumbnail": "images/jovian.jpg",
+      "title": "Jovian",
+      "subtitle": null
+    },
+    {
+      "slug": "two-connections",
+      "thumbnail": "images/two-connections.jpg",
+      "title": "Two Connections",
+      "subtitle": null
+    },
+    {
+      "slug": "chapel-on-the-water",
+      "thumbnail": "images/chapel-on-the-water.jpg",
+      "title": "Chapel on the Water",
+      "subtitle": null
+    }
+  ]
+}

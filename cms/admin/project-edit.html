@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Project - JZJN CMS</title>
+  <link rel="stylesheet" href="css/admin.css">
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+</head>
+<body>
+  <nav class="admin-nav">
+    <a href="/admin/" class="nav-logo">JZJN CMS</a>
+    <div class="nav-links">
+      <a href="/admin/">Dashboard</a>
+      <a href="/admin/homepage.html">Homepage</a>
+      <a href="/admin/sidebar.html">About</a>
+      <a href="/admin/projects.html" class="active">Projects</a>
+    </div>
+    <a href="/" target="_blank" class="nav-preview">Preview Site</a>
+  </nav>
+
+  <main class="admin-main">
+    <div class="page-header">
+      <div class="header-breadcrumb">
+        <a href="/admin/projects.html">&larr; Back to Projects</a>
+        <h1 id="projectTitle">Edit Project</h1>
+      </div>
+      <div class="header-actions">
+        <a id="previewLink" href="#" target="_blank" class="btn btn-secondary">Preview Page</a>
+        <button id="saveBtn" class="btn btn-primary">Save Changes</button>
+      </div>
+    </div>
+
+    <div class="project-editor">
+      <section class="editor-section">
+        <h2>Gallery Images</h2>
+        <p class="section-intro">Drag to reorder images. Click an image to edit or remove it.</p>
+
+        <div class="gallery-grid" id="galleryGrid">
+          <!-- Images loaded dynamically -->
+        </div>
+
+        <div class="upload-area" id="uploadArea">
+          <input type="file" id="imageUpload" accept="image/*" multiple>
+          <label for="imageUpload">
+            <span class="upload-icon">+</span>
+            <span>Click or drag images to upload</span>
+          </label>
+        </div>
+      </section>
+
+      <section class="editor-section">
+        <h2>Project Info Slide</h2>
+        <p class="section-intro">This information appears on the last slide of the project gallery.</p>
+
+        <div id="infoContainer">
+          <!-- Info lines loaded dynamically -->
+        </div>
+        <button type="button" id="addInfoLine" class="btn btn-small">+ Add Info Line</button>
+      </section>
+    </div>
+  </main>
+
+  <!-- Edit Image Modal -->
+  <div class="modal" id="editImageModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Edit Image</h2>
+        <button class="modal-close" id="closeImageModal">&times;</button>
+      </div>
+      <form id="editImageForm">
+        <input type="hidden" id="imageIndex">
+
+        <div class="form-group">
+          <label>Image</label>
+          <img id="modalImage" class="preview-image large" src="" alt="">
+        </div>
+
+        <div class="form-group">
+          <label for="imageAlt">Alt Text</label>
+          <input type="text" id="imageAlt">
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" id="deleteImageBtn" class="btn btn-danger">Delete Image</button>
+          <button type="submit" class="btn btn-primary">Update</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="js/admin.js"></script>
+  <script src="js/project-edit.js"></script>
+</body>
+</html>
